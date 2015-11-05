@@ -19,7 +19,7 @@ int main(const int argc, const char* argv[])
 	
 	//--
 	
-	Eretosthenes primeGenerator(maxValue);
+	Eratosthenes primeGenerator(maxValue);
 	vector<unsigned long> primes = primeGenerator.runSieve();
 	
 	ofstream outputFile(outputFileName);

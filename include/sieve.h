@@ -4,11 +4,11 @@
 
 using std::vector;
 
-class Eretosthenes
+class Eratosthenes
 {
 public:
 	
-	Eretosthenes(const unsigned long maxValueInSieve);
+	Eratosthenes(const unsigned long maxValueInSieve);
 	
 	vector<unsigned long> runSieve();
 	

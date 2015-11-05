@@ -11,13 +11,13 @@ unsigned long countValuesInSieve(const vector<bool> &sieve);
 
 //===============================================
 
-Eretosthenes::Eretosthenes(const unsigned long maxValueInSieve):
+Eratosthenes::Eratosthenes(const unsigned long maxValueInSieve):
 sieve(maxValueInSieve >> 1, true),
 sieveHasNotBeenRun(true)
 {}
 
 vector<unsigned long> 
-Eretosthenes::runSieve()
+Eratosthenes::runSieve()
 {
 	if(sieveHasNotBeenRun)
 	{
@@ -83,7 +83,7 @@ using namespace std;
 
 int main()
 {
-	Eretosthenes primeGenerator(30);
+	Eratosthenes primeGenerator(30);
 	
 	const vector<unsigned long> primes =
 			primeGenerator.runSieve();
