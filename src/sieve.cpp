@@ -81,6 +81,7 @@ using namespace std;
 
 int main()
 {
+	cout << "Hello Unit Testers." << endl;
 	return 0;
 }
 #endif
