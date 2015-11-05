@@ -26,3 +26,4 @@ bin:
 .PHONY: clean
 clean:
 	rm -rf bin
+	rm -r *.exe
