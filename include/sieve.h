@@ -4,4 +4,20 @@
 
 using std::vector;
 
-vector<unsigned long> eretosthenes(const unsigned long maxVal);
+class Eretosthenes
+{
+public:
+	
+	Eretosthenes(const unsigned long maxValueInSieve);
+	
+	vector<unsigned long> runSieve();
+	
+protected:
+	
+	/*A bool vector is used here rather than a
+	dynamic array because it is more memory
+	efficient.*/
+	vector<bool> sieve;
+	
+	bool sieveHasBeenRun;
+};

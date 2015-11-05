@@ -1,6 +1,12 @@
 #include "sieve.h"
 
-vector<unsigned long> eretosthenes(const unsigned long maxVal)
+Eretosthenes::Eretosthenes(const unsigned long maxValueInSieve):
+sieve(maxValueInSieve >> 1, true),
+sieveHasBeenRun(false)
+{}
+
+vector<unsigned long> 
+Eretosthenes::runSieve()
 {
 	vector<unsigned long> returnValue;
 	return returnValue;
