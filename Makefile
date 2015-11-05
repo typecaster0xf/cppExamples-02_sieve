@@ -8,12 +8,25 @@ LINK=$(CC) $^ -o $@
 
 #################################################
 
+sieve.exe: bin/main__opt.o bin/sieve__opt.o
+	$(LINK)
+
+sieve-dev.exe: bin/main.o bin/sieve.o
+	$(LINK)
+
+##########
+
 unittestSieve.exe: bin/sieve__ut.o
 	$(LINK)
 
 #################################################
 
-bin/seive.o: src/sieve.cpp include/sieve.h | bin
+bin/main.o: src/main.cpp include/sieve.h | bin
+	$(OBJECT)
+bin/main__opt.o: src/main.cpp include/sieve.h | bin
+	$(OPTIMIZED)
+
+bin/sieve.o: src/sieve.cpp include/sieve.h | bin
 	$(OBJECT)
 bin/sieve__opt.o: src/sieve.cpp include/sieve.h | bin
 	$(OPTIMIZED)
