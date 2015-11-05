@@ -9,7 +9,9 @@ int main(const int argc, const char* argv[])
 {
 	if(argc < 3)
 	{
-		cout << "Usage: " << argv[0]
+		cout << "Determines the prime numbers in a range of "
+				<< "numbers and writes the results to a file.\n"
+				<< "Usage: " << argv[0]
 				<< " <max_value> <output_file_name>" << endl;
 		return 0;
 	}
