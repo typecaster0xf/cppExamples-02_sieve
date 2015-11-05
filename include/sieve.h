@@ -19,5 +19,5 @@ protected:
 	efficient.*/
 	vector<bool> sieve;
 	
-	bool sieveHasBeenRun;
+	bool sieveHasNotBeenRun;
 };
