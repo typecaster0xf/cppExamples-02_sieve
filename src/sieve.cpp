@@ -46,11 +46,11 @@ cout << "sieving limit: " << sievingLimit << endl;
 				prime = findNextPrime(prime, sieve))
 		{
 cout << "Prime to Sieve: " << prime << endl;
-			for(unsigned long inc = prime << 1, j = prime + inc;
-					(j >> 1) < sieve.size(); j += inc)
+			for(unsigned long j = (prime >> 1) + prime;
+					j < sieve.size(); j += prime)
 {
-				sieve[j >> 1] = false;
-cout << "Falsed: " << (j >> 1) << " : " << j << endl;
+				sieve[j] = false;
+cout << "Falsed: " << j << " : " << ((j << 1) | 1) << endl;
 }
 		}
 		
