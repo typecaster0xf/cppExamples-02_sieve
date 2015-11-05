@@ -5,6 +5,10 @@
 unsigned long findNextPrime(const unsigned long currentPrime,
 		const vector<bool> &sieve);
 
+vector<unsigned long> getValuesFromSieve(const vector<bool> &sieve);
+
+unsigned long countValuesInSieve(const vector<bool> &sieve);
+
 //===============================================
 
 Eretosthenes::Eretosthenes(const unsigned long maxValueInSieve):
@@ -26,9 +30,7 @@ Eretosthenes::runSieve()
 			sieve[j] = false;
 	}
 	
-	//TODO
-	vector<unsigned long> returnValue;
-	return returnValue;
+	return getValuesFromSieve(sieve);
 }
 
 //===============================================
@@ -41,4 +43,28 @@ unsigned long findNextPrime(const unsigned long currentPrime,
 			return (j << 1) | 1;
 	
 	assert(false);
+}
+
+vector<unsigned long> getValuesFromSieve(const vector<bool> &sieve)
+{
+	vector<unsigned long> primeNumbers;
+	primeNumbers.reserve(countValuesInSieve(sieve) + 1);
+	
+	primeNumbers.push_back(2);
+	for(unsigned long j = 0; j < sieve.size(); j++)
+		if(sieve[j])
+			primeNumbers.push_back((j << 1) | 1);
+	
+	return primeNumbers;
+}
+
+unsigned long countValuesInSieve(const vector<bool> &sieve)
+{
+	unsigned long values = 0;
+	
+	for(unsigned long j = 0; j < sieve.size(); j++)
+		if(sieve[j])
+			values++;
+	
+	return values;
 }
