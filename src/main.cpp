@@ -22,7 +22,7 @@ int main(const int argc, const char* argv[])
 	Eretosthenes primeGenerator(maxValue);
 	vector<unsigned long> primes = primeGenerator.runSieve();
 	
-	fstream outputFile(outputFileName);
+	ofstream outputFile(outputFileName);
 	for(unsigned long j = 0; j < primes.size(); j++)
 		outputFile << primes[j] << '\n';
 	outputFile.close();
