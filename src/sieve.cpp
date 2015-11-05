@@ -73,3 +73,14 @@ unsigned long countValuesInSieve(const vector<bool> &sieve)
 	
 	return values;
 }
+
+#ifdef UNITTEST
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	return 0;
+}
+#endif
