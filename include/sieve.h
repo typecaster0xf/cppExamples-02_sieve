@@ -4,12 +4,18 @@
 
 using std::vector;
 
+/*Generates prime numbers.*/
 class Eratosthenes
 {
 public:
 	
+	/*maxValueInSieve: the highest number to
+	consider as a possible prime number.*/
 	Eratosthenes(const unsigned long maxValueInSieve);
 	
+	/*Runs the sieving algorithm (if it had not
+	been previously run) and returns the prime
+	numbers.*/
 	vector<unsigned long> runSieve();
 	
 protected:
