@@ -2,7 +2,7 @@ CC=g++
 
 .SECONDEXPANSION:
 OBJECT=$(CC) $< -c -I include -o $@
-OPTIMIZED=$(CC) $< -c -I include -O2 -D NDEBUG -o $@
+OPTIMIZED=$(CC) $< -c -I include -O2 -march=native -D NDEBUG -o $@
 UNIT_TEST=$(CC) $< -c -I include -D UNITTEST -o $@
 LINK=$(CC) $^ -o $@
 
