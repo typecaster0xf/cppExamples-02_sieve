@@ -81,7 +81,23 @@ using namespace std;
 
 int main()
 {
-	cout << "Hello Unit Testers." << endl;
+	Eretosthenes primeGenerator(20);
+	
+	const vector<unsigned long> primes =
+			primeGenerator.runSieve();
+	
+	assert(primes[0] == 2);
+	assert(primes[1] == 3);
+	assert(primes[2] == 5);
+	assert(primes[3] == 7);
+	assert(primes[4] == 11);
+	assert(primes[5] == 13);
+	assert(primes[6] == 17);
+	assert(primes[7] == 19);
+	
+	assert(primes.size() == 8);
+	
+	cout << "class Eretosthenes unit test passed." << endl;
 	return 0;
 }
 #endif
