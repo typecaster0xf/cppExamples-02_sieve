@@ -43,7 +43,8 @@ Eretosthenes::runSieve()
 unsigned long findNextPrime(const unsigned long currentPrime,
 		const vector<bool> &sieve)
 {
-	for(unsigned long j = currentPrime >> 1; j < sieve.size(); j++)
+	for(unsigned long j = (currentPrime >> 1) + 1;
+			j < sieve.size(); j++)
 		if(sieve[j])
 			return (j << 1) | 1;
 	
