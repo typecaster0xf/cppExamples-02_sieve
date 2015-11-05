@@ -2,6 +2,13 @@
 #include <cmath>
 #include "sieve.h"
 
+
+#include <iostream>
+using namespace std;
+
+
+
+
 unsigned long findNextPrime(const unsigned long currentPrime,
 		const vector<bool> &sieve);
 
@@ -19,17 +26,32 @@ sieveHasNotBeenRun(true)
 vector<unsigned long> 
 Eretosthenes::runSieve()
 {
+
+cout << "Sieve: ";
+for(unsigned long j = 0; j < sieve.size(); j++)
+cout << sieve[j];
+cout << endl;
+
+
+
+
 	if(sieveHasNotBeenRun)
 	{
 		const unsigned long sievingLimit = static_cast<unsigned long>(
 				ceil(sqrt((sieve.size() << 1) | 1)));
 	
+cout << "sieving limit: " << sievingLimit << endl;
+		sieve[0] = false;
 		for(unsigned long prime = 3; prime < sievingLimit;
 				prime = findNextPrime(prime, sieve))
 		{
-			for(unsigned long j = prime - 1, inc = prime >> 1;
-					j < sieve.size(); j += inc)
-				sieve[j] = false;
+cout << "Prime to Sieve: " << prime << endl;
+			for(unsigned long inc = prime << 1, j = prime + inc;
+					(j >> 1) < sieve.size(); j += inc)
+{
+				sieve[j >> 1] = false;
+cout << "Falsed: " << (j >> 1) << " : " << j << endl;
+}
 		}
 		
 		sieveHasNotBeenRun = false;
@@ -43,10 +65,14 @@ Eretosthenes::runSieve()
 unsigned long findNextPrime(const unsigned long currentPrime,
 		const vector<bool> &sieve)
 {
+cout << "Current Prime: " << currentPrime << endl;
 	for(unsigned long j = (currentPrime >> 1) + 1;
 			j < sieve.size(); j++)
+{
+cout << "J val: " << j << " : " << ((j << 1) | 1) << endl;
 		if(sieve[j])
 			return (j << 1) | 1;
+}
 	
 	assert(false);
 }
