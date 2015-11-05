@@ -2,11 +2,20 @@
 #include <cmath>
 #include "sieve.h"
 
+/*Combs through the sieve until it finds the next
+"true" value and returns the number it
+represents.  Used in the sieving outer loop to
+update the loop variable.*/
 unsigned long findNextPrime(const unsigned long currentPrime,
 		const vector<bool> &sieve);
 
+/*Converts the sieve flagging numbers as prime or
+composite into a vector of prime numbers.*/
 vector<unsigned long> getValuesFromSieve(const vector<bool> &sieve);
 
+/*Used by getValuesFromSieve() to determine how
+much space to reserve in memory for its output
+vector.*/
 unsigned long countValuesInSieve(const vector<bool> &sieve);
 
 //===============================================
@@ -75,6 +84,8 @@ unsigned long countValuesInSieve(const vector<bool> &sieve)
 	
 	return values;
 }
+
+//===============================================
 
 #ifdef UNITTEST
 #include <iostream>
